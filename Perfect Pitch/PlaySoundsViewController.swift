@@ -11,10 +11,12 @@ import AVFoundation
 
 class PlaySoundsViewController: UIViewController {
 
+    @IBOutlet weak var stopButton: UIButton!
     var audioPlayer: AVAudioPlayer!
     var recordedAudio: RecordedAudio!
     var audioEngine: AVAudioEngine!
     var audioFile: AVAudioFile!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         audioEngine = AVAudioEngine()
@@ -22,6 +24,8 @@ class PlaySoundsViewController: UIViewController {
         audioPlayer = loadAudioFile()
 
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -54,6 +58,11 @@ class PlaySoundsViewController: UIViewController {
         playAudioWithReverb()
     }
     
+    
+    @IBAction func stop(sender: AnyObject) {
+        stopPlayer()
+    }
+    
     func loadAudioFile() -> AVAudioPlayer{
         var audio: AVAudioPlayer?
         do{
@@ -65,9 +74,7 @@ class PlaySoundsViewController: UIViewController {
     }
     
     func fastAndSlowAudio(rate: Float) {
-        audioEngine.stop()
-        audioEngine.reset()
-        audioPlayer?.stop()
+        stopPlayer()
         audioPlayer?.enableRate = true
         audioPlayer?.rate = rate
         audioPlayer?.currentTime = 0.0
@@ -75,9 +82,7 @@ class PlaySoundsViewController: UIViewController {
     }
     
     func playAudioWithVariablePitch(pitch: Float) {
-        audioEngine.stop()
-        audioEngine.reset()
-        audioPlayer.stop()
+        stopPlayer()
         let audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
         
@@ -95,9 +100,7 @@ class PlaySoundsViewController: UIViewController {
     }
     
     func playAudioWithReverb() {
-        audioEngine.stop()
-        audioEngine.reset()
-        audioPlayer.stop()
+        stopPlayer()
         let audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
         
@@ -115,9 +118,7 @@ class PlaySoundsViewController: UIViewController {
     }
     
     func playAudioWithEcho() {
-        audioEngine.stop()
-        audioEngine.reset()
-        audioPlayer.stop()
+        stopPlayer()
         let audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
         
@@ -132,4 +133,11 @@ class PlaySoundsViewController: UIViewController {
         
         audioPlayerNode.play()
     }
+    
+    func stopPlayer() {
+        audioEngine.stop()
+        audioEngine.reset()
+        audioPlayer.stop()
+    }
+    
 }

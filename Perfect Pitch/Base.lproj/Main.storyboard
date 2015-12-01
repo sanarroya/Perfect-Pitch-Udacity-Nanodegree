@@ -175,6 +175,19 @@
                                     <action selector="playReverbAudio:" destination="Yqu-7g-7SZ" eventType="touchUpInside" id="GgX-3M-Juz"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x2r-mQ-vBi">
+                                <rect key="frame" x="278" y="492" width="45" height="45"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="45" id="F00-TD-Lqx"/>
+                                    <constraint firstAttribute="height" constant="45" id="bgB-jP-2bu"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="stop"/>
+                                <connections>
+                                    <action selector="stop:" destination="Yqu-7g-7SZ" eventType="touchUpInside" id="N0C-mw-YxX"/>
+                                    <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jCr-Qh-nwM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -182,8 +195,10 @@
                             <constraint firstAttribute="leadingMargin" secondItem="fCs-zo-Daa" secondAttribute="leading" id="2JP-vf-DzS"/>
                             <constraint firstItem="iLJ-p6-A5P" firstAttribute="top" secondItem="2sT-PQ-Kvs" secondAttribute="bottom" constant="8" id="6GC-4b-HR0"/>
                             <constraint firstItem="fCs-zo-Daa" firstAttribute="top" secondItem="a4t-MK-yb7" secondAttribute="bottom" constant="8" id="Bh5-rE-IaH"/>
+                            <constraint firstItem="hQT-sq-uJP" firstAttribute="top" secondItem="x2r-mQ-vBi" secondAttribute="bottom" constant="63" id="Bt1-vA-Ayf"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iLJ-p6-A5P" secondAttribute="trailing" id="DGn-m9-ZBd"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Qi1-eh-o62" secondAttribute="leading" id="KWI-CL-aej"/>
+                            <constraint firstItem="x2r-mQ-vBi" firstAttribute="centerX" secondItem="opx-FM-bEx" secondAttribute="centerX" id="LtE-9X-dbX"/>
                             <constraint firstItem="Qi1-eh-o62" firstAttribute="top" secondItem="5f2-5H-Mcc" secondAttribute="bottom" constant="21" id="Mg5-4G-WuV"/>
                             <constraint firstAttribute="leadingMargin" secondItem="a4t-MK-yb7" secondAttribute="leading" id="OQq-ze-Qc2"/>
                             <constraint firstItem="a4t-MK-yb7" firstAttribute="top" secondItem="Qi1-eh-o62" secondAttribute="bottom" constant="8" id="SXd-iS-jMD"/>
@@ -193,6 +208,9 @@
                             <constraint firstAttribute="trailingMargin" secondItem="2sT-PQ-Kvs" secondAttribute="trailing" id="tap-XT-vCj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="stopButton" destination="x2r-mQ-vBi" id="TiH-PK-k96"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lv5-DM-Ch9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
